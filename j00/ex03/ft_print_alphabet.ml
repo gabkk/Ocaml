@@ -14,10 +14,10 @@ let ft_alphabet () =
     let char_a = int_of_char 'a' in
     let char_z = int_of_char 'z' in
     let rec loop position =    
-        if position <= char_z then
-            let res = char_of_int position in
-            print_char res;
-            loop (position + 1)
+    if position <= char_z then
+       let res = char_of_int position in
+       print_char res;
+       loop (position + 1)
     in
     loop char_a;
     print_char '\n'

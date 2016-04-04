@@ -12,22 +12,30 @@
 
 let ft_print_comb () =
     let first = 0 in
-    let rec loop1 first =
-       if first <= 9 then
-          if (first + 1) <= 9 then
-             let second = (first + 1) in
-                 let rec loop2 second =
-                 if (second + 1) <= 9 then
-                 let third = (second + 1) in
-                 print_int first;
-                 print_int second;
-                 print_int third;
-                 print_string " ,";
-                 in
-                 loop2 (second + 1);
-                 loop1 (first + 1)
+    let rec loop firstpos =
+    if firstpos <= 7 then
+    	    let second = firstpos + 1 in
+	    let rec loop2 secondpos =
+	    if secondpos <= 8 then
+		let third = secondpos + 1 in
+		let rec loop3 thirdpos =
+		if thirdpos <= 9 then
+	    	    begin
+	    	    print_int firstpos;
+	    	    print_int secondpos;
+	    	    print_int thirdpos;
+       	    	    if firstpos < 7 then
+		    print_string " ,";
+	    	    loop3 (thirdpos + 1)	
+		    end
+		in
+		loop3 third;
+		loop2 (secondpos + 1)
+	    in
+	    loop2 second;
+       	    loop (firstpos + 1)
     in
-    loop1 first;
+    loop first;
     print_char '\n'
 
 let main () =
