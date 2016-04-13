@@ -11,7 +11,7 @@
 (* ************************************************************************** *)
 
 class dalek =
-    object
+    object (self)
         val _name:string = "dalek" ^
         (String.make 1("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".[Random.int(String.length
         "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")])) ^      (String.make 1("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".[Random.int(String.length
@@ -24,10 +24,12 @@ class dalek =
 
         method to_string = "name : " ^ _name  ^ " hp : " ^ (string_of_int _hp) ^ " shield : " ^
         (string_of_bool _shield)
-        method talk = let rd = Random.int 3 in
-            if rd = 0 then "yo1"
-            else if rd = 1 then "yo2"
-            else if rd = 2 then "yo3"
-            else "yo4"
-        method exterminate test:People.people = (test)#die
+        method talk = 
+	match (Random.int 3) with
+	| 0 -> "Explain! Explain!"
+	| 1 -> "Exterminate! Exterminate!"
+	| 2 -> "I obey!"
+	| _ -> "You are the Doctor! You are the enemy of the Daleks!"
+          
+        method exterminate test:People = {<test>}#die
     end

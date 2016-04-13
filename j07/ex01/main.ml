@@ -12,10 +12,12 @@
 
 let () =
     let wrooom = new People.people "Wroom" in
-    let boulet = new Doctor.doctor "Joe" 40 wrooom in
-    print_endline boulet#talk;
-    print_endline boulet#to_string;
-    print_endline boulet#use_sonic_screwdriver;
-    print_endline (boulet#travel_in_time 1950 1960)#to_string;
-    print_endline boulet#to_string
-
+    let joe = new Doctor.doctor "Joe" 40 wrooom in
+    print_endline wrooom#talk;
+    print_endline wrooom#to_string;
+    print_endline joe#talk;
+    print_endline joe#to_string;
+    print_endline joe#use_sonic_screwdriver;
+    print_endline (joe#travel_in_time 1950 1960)#to_string;
+    print_endline ("Wroom die : " ^ wrooom#die);
+    print_endline ("Dr who die " ^ joe#die)

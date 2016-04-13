@@ -10,18 +10,18 @@
 (*                                                                            *)
 (* ************************************************************************** *)
 
-class doctor name age blaze =
+class doctor name age people =
     object (self)
         val _name:string = name
-        val _sidekick:People.people = blaze
         val _age = age
+        val _sidekick:People.people = people
         val mutable _hp = 100
 
         initializer print_endline "Creation of an instance of doctor"
-        method to_string = _name ^ " : " ^ (string_of_int _age) ^ " years old " ^
-        "hp : " ^ (string_of_int _hp) ^ "\n" ^ _sidekick#to_string 
         method talk = "Hi! I'm the Doctor!"
-        method travel_in_time start arrival = print_endline "
+        method to_string = _name ^ " : " ^ (string_of_int _age) ^ " years old " ^ "hp : " ^ (string_of_int _hp) ^ "\n Sidekick  " ^ _sidekick#get_name
+    (*    method private kicksomeone = _name ^ " kick " ^ _sidekick#get_name ^ " die "^ _sidekick#die *)
+	method travel_in_time start arrival = print_endline "
                     `..-:..`                      
                     :  -/  `.                     
     `....:--.:.----....  ..` `...--.---....`      
@@ -57,9 +57,19 @@ class doctor name age blaze =
        .               `.               .         
        -`-`-`-`..........`-`-`-`-`-`-`-`-         
        ` ` ` `      ` ` ` ` ` ` ` ` ` ` `  
-        "; {< _age = _age + (start
-        -arrival)>}
+        ";
+	begin
+	if start > arrival then	{< _age = _age - (start - arrival)>}
+	else {< _age = _age + (arrival - start)>}
+	
+	end
         method use_sonic_screwdriver = "Whiiiiwhiiiwhiii Whiiiiwhiiiwhiii Whiiiiwhiiiwhiii"        
+	method die = 
+	begin
+		(self)#regenerate;
+		" i ll be back !!\n" ^
+		(self)#to_string
+	end
         method private regenerate = _hp <- 100
     end
 

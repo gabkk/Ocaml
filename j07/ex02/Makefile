@@ -1,5 +1,5 @@
 #nom de l executable
-NAME = people
+NAME = dalek
 
 #sourece du programme dans l ordre
 SOURCES = people.ml dalek.ml doctor.ml main.ml

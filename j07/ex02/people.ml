@@ -19,4 +19,5 @@ class people name =
         method to_string = _name ^ " : " ^ (string_of_int _hp) ^ " health points"
         method talk = "I'm " ^ _name ^ "! Do you know the Doctor ?"
         method die = "Aaaarghh!"
+	method get_name = _name
     end
