@@ -6,7 +6,7 @@
 (*   By: gkuma <marvin@42.fr>                       +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
 (*   Created: 2016/04/11 18:19:18 by gkuma             #+#    #+#             *)
-(*   Updated: 2016/04/11 19:24:40 by gkuma            ###   ########.fr       *)
+(*   Updated: 2016/04/12 15:01:54 by gkuma            ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
@@ -19,6 +19,7 @@ let main () =
     tab.(3) <- "How do spies send secret messages in a forest? By moss code.";
     tab.(4) <- "Did you hear about the restaurant on the moon? It has great
     food, but no atmosphere";
+    Random.self_init ();
     print_endline (tab.(Random.int 5))
 
 let () = main ()
