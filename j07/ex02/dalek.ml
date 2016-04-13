@@ -31,5 +31,7 @@ class dalek =
 	| 2 -> "I obey!"
 	| _ -> "You are the Doctor! You are the enemy of the Daleks!"
           
-        method exterminate test:People = {<test>}#die
+        method exterminate test = (new People.people test)#die
+
+	method die = "Emergency Temporal Shift!"
     end

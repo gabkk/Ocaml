@@ -11,7 +11,7 @@
 (* ************************************************************************** *)
 
 let () =
-    Random.init_self ();
+    Random.self_init ();
     let wrooom = new People.people "Wroom" in
     let joe = new Doctor.doctor "Joe" 40 wrooom in
     let mechant = new Dalek.dalek in
